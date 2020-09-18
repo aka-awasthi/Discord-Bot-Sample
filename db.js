@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
-const uri = ""
+const uri = "" // please put your own mongodb connection string
+
+// Db class is used to start the connection with mongodb server 
 
 class Db {
     constructor(){
@@ -9,6 +11,8 @@ class Db {
             console.log(err)
             fn()
         })
+
+        // return connect promise 
         return mongoose.connect(uri,{ useUnifiedTopology: true, useNewUrlParser: true })
     }
     closeConnection(){
