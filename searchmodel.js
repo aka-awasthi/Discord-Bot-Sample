@@ -28,7 +28,8 @@ class Search{
         return p1.save()
     }
     findAll(search){  // index search function matching with user tag and sorting in desc order
-       return Model.find({$or: [ {$text: { $search: search.query }}],user: search.user}).sort('-timestamp')
+        console.log(search.user)
+       return Model.find({$text: { $search: search.query },user: search.user}).sort('-timestamp')
     }
 }
 export{Search}
